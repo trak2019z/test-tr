@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ERP.Models.UserViewModel>
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <!--<th>Podgląd</th>-->
+            <th>Nazwa</th>
+            <th>Hasło</th>
+            <th>Rola</th>
+            <th>Ulica</th>
+            <th>Akcja</th>
+        </tr>
+        @foreach (var cos in Model)
+        {
+            <tr>
+                <!--<th><img src="~/Images/pobrane.jpg"/></th>-->
+                <th><b>@cos.nazwa</b></th>
+                <th>@cos.haslo</th>
+                <th>@cos.rola</th>
+                <th>@cos.ulica</th>
+                <th>@Html.ActionLink("Usuń", "Delete", "RejestracjaController")</th>
+            </tr>
+        }
+    </table>
+}
+else
+{<h2>brak wyników!</h2>}

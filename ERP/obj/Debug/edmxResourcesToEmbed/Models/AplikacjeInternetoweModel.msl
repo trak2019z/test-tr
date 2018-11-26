@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AplikacjeInternetoweModelStoreContainer" CdmEntityContainer="AplikacjeInternetoweEntities1">
+    <EntitySetMapping Name="DkPz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkPz">
+        <MappingFragment StoreEntitySet="DkPz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkPzPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkPzPoz">
+        <MappingFragment StoreEntitySet="DkPzPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idDkPz" ColumnName="idDkPz" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+          <ScalarProperty Name="pozMag" ColumnName="pozMag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkSp">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkSp">
+        <MappingFragment StoreEntitySet="DkSp">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkSpPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkSpPoz">
+        <MappingFragment StoreEntitySet="DkSpPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idDkSp" ColumnName="idDkSp" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkWz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkWz">
+        <MappingFragment StoreEntitySet="DkWz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkWzPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkWzPoz">
+        <MappingFragment StoreEntitySet="DkWzPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idDkWz" ColumnName="idDkWz" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+          <ScalarProperty Name="pozMag" ColumnName="pozMag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkZk">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkZk">
+        <MappingFragment StoreEntitySet="DkZk">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DkZkPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkZkPoz">
+        <MappingFragment StoreEntitySet="DkZkPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idDkZk" ColumnName="idDkZk" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="podatek" ColumnName="podatek" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magazyny">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Magazyny">
+        <MappingFragment StoreEntitySet="Magazyny">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MagazynyPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.MagazynyPoz">
+        <MappingFragment StoreEntitySet="MagazynyPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+          <ScalarProperty Name="idmg" ColumnName="idmg" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Towary">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Towary">
+        <MappingFragment StoreEntitySet="Towary">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Uzytkownicy">
+        <MappingFragment StoreEntitySet="Uzytkownicy">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+          <ScalarProperty Name="rola" ColumnName="rola" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="kodpocz" ColumnName="kodpocz" />
+          <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+          <ScalarProperty Name="nip" ColumnName="nip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZMO">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMO">
+        <MappingFragment StoreEntitySet="ZMO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="czyZrealizowane" ColumnName="czyZrealizowane" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZMOPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMOPoz">
+        <MappingFragment StoreEntitySet="ZMOPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idZMO" ColumnName="idZMO" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="podatek" ColumnName="podatek" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZMW">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMW">
+        <MappingFragment StoreEntitySet="ZMW">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="czyZrealizowane" ColumnName="czyZrealizowane" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZMWPoz">
+      <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMWPoz">
+        <MappingFragment StoreEntitySet="ZMWPoz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idZMW" ColumnName="idZMW" />
+          <ScalarProperty Name="netto" ColumnName="netto" />
+          <ScalarProperty Name="podatek" ColumnName="podatek" />
+          <ScalarProperty Name="brutto" ColumnName="brutto" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="idtw" ColumnName="idtw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

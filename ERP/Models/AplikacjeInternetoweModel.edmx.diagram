@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="014e9ef7ca7e4a7090265425134df16f" Name="Diagram1">
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkPz" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkPzPoz" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkSp" Width="1.5" PointX="3.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkSpPoz" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkWz" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkWzPoz" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkZk" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.DkZkPoz" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.Magazyny" Width="1.5" PointX="3.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.MagazynyPoz" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.Towary" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.Uzytkownicy" Width="1.5" PointX="1.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.ZMO" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.ZMOPoz" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.ZMW" Width="1.5" PointX="6.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AplikacjeInternetoweModel.ZMWPoz" Width="1.5" PointX="9" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkPz_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkPzPoz_DkPz" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkWzPoz_DkPz" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkPzPoz_MagazynyPoz" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkPzPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkSp_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkSpPoz_DkSp" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkSpPoz_DkSpPoz" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkWz_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkWzPoz_MagazynyPoz" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkWzPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkZk_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkZkPoz_DkZk" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_DkZkPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_MagazynyPoz_Magazyny" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_MagazynyPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMOPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMWPoz_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMO_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMW_Uzytkownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMOPoz_ZMO" ManuallyRouted="false" />
+        <AssociationConnector Association="AplikacjeInternetoweModel.FK_ZMWPoz_ZMW" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

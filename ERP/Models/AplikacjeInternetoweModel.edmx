@@ -1,0 +1,1376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AplikacjeInternetoweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DkPz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="data" Type="date" />
+        </EntityType>
+        <EntityType Name="DkPzPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDkPz" Type="bigint" Nullable="false" />
+          <Property Name="ilosc" Type="float" Nullable="false" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+          <Property Name="pozMag" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DkSp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="data" Type="date" />
+        </EntityType>
+        <EntityType Name="DkSpPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDkSp" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="ilosc" Type="float" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DkWz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="data" Type="date" />
+        </EntityType>
+        <EntityType Name="DkWzPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDkWz" Type="bigint" Nullable="false" />
+          <Property Name="ilosc" Type="float" Nullable="false" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+          <Property Name="pozMag" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DkZk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="data" Type="date" />
+        </EntityType>
+        <EntityType Name="DkZkPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDkZk" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="podatek" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="ilosc" Type="float" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Magazyny">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MagazynyPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+          <Property Name="idmg" Type="bigint" Nullable="false" />
+          <Property Name="ilosc" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" />
+          <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" Nullable="false" />
+          <Property Name="brutto" Type="float" Nullable="false" />
+          <Property Name="opis" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Uzytkownicy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="haslo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rola" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ulica" Type="varchar" MaxLength="50" />
+          <Property Name="kodpocz" Type="varchar" MaxLength="50" />
+          <Property Name="miejscowosc" Type="varchar" MaxLength="50" />
+          <Property Name="nip" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZMO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="data" Type="date" />
+          <Property Name="czyZrealizowane" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZMOPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idZMO" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="podatek" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="ilosc" Type="float" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZMW">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idkh" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="vat" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="data" Type="date" />
+          <Property Name="czyZrealizowane" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZMWPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="idZMW" Type="bigint" Nullable="false" />
+          <Property Name="netto" Type="float" Nullable="false" />
+          <Property Name="podatek" Type="float" />
+          <Property Name="brutto" Type="float" />
+          <Property Name="ilosc" Type="float" />
+          <Property Name="idtw" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DkPz_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPz">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_DkPz">
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkPz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="idDkPz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_MagazynyPoz">
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyPoz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="pozMag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSp_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkSp" Type="Self.DkSp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSp">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSpPoz_DkSp">
+          <End Role="DkSp" Type="Self.DkSp" Multiplicity="1" />
+          <End Role="DkSpPoz" Type="Self.DkSpPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkSp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSpPoz">
+              <PropertyRef Name="idDkSp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSpPoz_DkSpPoz">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkSpPoz" Type="Self.DkSpPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSpPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWz_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkWz" Type="Self.DkWz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWz">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_DkPz">
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkPz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="idDkWz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_MagazynyPoz">
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyPoz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="pozMag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZk_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkZk" Type="Self.DkZk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZk">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZkPoz_DkZk">
+          <End Role="DkZk" Type="Self.DkZk" Multiplicity="1" />
+          <End Role="DkZkPoz" Type="Self.DkZkPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkZk">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZkPoz">
+              <PropertyRef Name="idDkZk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZkPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkZkPoz" Type="Self.DkZkPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZkPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyPoz_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MagazynyPoz">
+              <PropertyRef Name="idmg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MagazynyPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMO_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="ZMO" Type="Self.ZMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMO">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMOPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="ZMOPoz" Type="Self.ZMOPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMOPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMOPoz_ZMO">
+          <End Role="ZMO" Type="Self.ZMO" Multiplicity="1" />
+          <End Role="ZMOPoz" Type="Self.ZMOPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZMO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMOPoz">
+              <PropertyRef Name="idZMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMW_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="ZMW" Type="Self.ZMW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMW">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMWPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="ZMWPoz" Type="Self.ZMWPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMWPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMWPoz_ZMW">
+          <End Role="ZMW" Type="Self.ZMW" Multiplicity="1" />
+          <End Role="ZMWPoz" Type="Self.ZMWPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZMW">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMWPoz">
+              <PropertyRef Name="idZMW" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AplikacjeInternetoweModelStoreContainer">
+          <EntitySet Name="DkPz" EntityType="Self.DkPz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkPzPoz" EntityType="Self.DkPzPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkSp" EntityType="Self.DkSp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkSpPoz" EntityType="Self.DkSpPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkWz" EntityType="Self.DkWz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkWzPoz" EntityType="Self.DkWzPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkZk" EntityType="Self.DkZk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DkZkPoz" EntityType="Self.DkZkPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazyny" EntityType="Self.Magazyny" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MagazynyPoz" EntityType="Self.MagazynyPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZMO" EntityType="Self.ZMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZMOPoz" EntityType="Self.ZMOPoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZMW" EntityType="Self.ZMW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZMWPoz" EntityType="Self.ZMWPoz" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DkPz_Uzytkownicy" Association="Self.FK_DkPz_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkPz" EntitySet="DkPz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_DkPz" Association="Self.FK_DkPzPoz_DkPz">
+            <End Role="DkPz" EntitySet="DkPz" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_MagazynyPoz" Association="Self.FK_DkPzPoz_MagazynyPoz">
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_Towary" Association="Self.FK_DkPzPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSp_Uzytkownicy" Association="Self.FK_DkSp_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkSp" EntitySet="DkSp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSpPoz_DkSp" Association="Self.FK_DkSpPoz_DkSp">
+            <End Role="DkSp" EntitySet="DkSp" />
+            <End Role="DkSpPoz" EntitySet="DkSpPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSpPoz_DkSpPoz" Association="Self.FK_DkSpPoz_DkSpPoz">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkSpPoz" EntitySet="DkSpPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWz_Uzytkownicy" Association="Self.FK_DkWz_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkWz" EntitySet="DkWz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_DkPz" Association="Self.FK_DkWzPoz_DkPz">
+            <End Role="DkPz" EntitySet="DkPz" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_MagazynyPoz" Association="Self.FK_DkWzPoz_MagazynyPoz">
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_Towary" Association="Self.FK_DkWzPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZk_Uzytkownicy" Association="Self.FK_DkZk_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkZk" EntitySet="DkZk" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZkPoz_DkZk" Association="Self.FK_DkZkPoz_DkZk">
+            <End Role="DkZk" EntitySet="DkZk" />
+            <End Role="DkZkPoz" EntitySet="DkZkPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZkPoz_Towary" Association="Self.FK_DkZkPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkZkPoz" EntitySet="DkZkPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyPoz_Magazyny" Association="Self.FK_MagazynyPoz_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyPoz_Towary" Association="Self.FK_MagazynyPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMO_Uzytkownicy" Association="Self.FK_ZMO_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="ZMO" EntitySet="ZMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMOPoz_Towary" Association="Self.FK_ZMOPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="ZMOPoz" EntitySet="ZMOPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMOPoz_ZMO" Association="Self.FK_ZMOPoz_ZMO">
+            <End Role="ZMO" EntitySet="ZMO" />
+            <End Role="ZMOPoz" EntitySet="ZMOPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMW_Uzytkownicy" Association="Self.FK_ZMW_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="ZMW" EntitySet="ZMW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMWPoz_Towary" Association="Self.FK_ZMWPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="ZMWPoz" EntitySet="ZMWPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMWPoz_ZMW" Association="Self.FK_ZMWPoz_ZMW">
+            <End Role="ZMW" EntitySet="ZMW" />
+            <End Role="ZMWPoz" EntitySet="ZMWPoz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AplikacjeInternetoweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DkPz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_DkPz_Uzytkownicy" FromRole="DkPz" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="DkPzPoz" Relationship="Self.FK_DkPzPoz_DkPz" FromRole="DkPz" ToRole="DkPzPoz" />
+          <NavigationProperty Name="DkWzPoz" Relationship="Self.FK_DkWzPoz_DkPz" FromRole="DkPz" ToRole="DkWzPoz" />
+        </EntityType>
+        <EntityType Name="DkPzPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDkPz" Type="Int64" Nullable="false" />
+          <Property Name="ilosc" Type="Double" Nullable="false" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <Property Name="pozMag" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="DkPz" Relationship="Self.FK_DkPzPoz_DkPz" FromRole="DkPzPoz" ToRole="DkPz" />
+          <NavigationProperty Name="MagazynyPoz" Relationship="Self.FK_DkPzPoz_MagazynyPoz" FromRole="DkPzPoz" ToRole="MagazynyPoz" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_DkPzPoz_Towary" FromRole="DkPzPoz" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="DkSp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_DkSp_Uzytkownicy" FromRole="DkSp" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="DkSpPoz" Relationship="Self.FK_DkSpPoz_DkSp" FromRole="DkSp" ToRole="DkSpPoz" />
+        </EntityType>
+        <EntityType Name="DkSpPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDkSp" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="ilosc" Type="Double" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="DkSp" Relationship="Self.FK_DkSpPoz_DkSp" FromRole="DkSpPoz" ToRole="DkSp" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_DkSpPoz_DkSpPoz" FromRole="DkSpPoz" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="DkWz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_DkWz_Uzytkownicy" FromRole="DkWz" ToRole="Uzytkownicy" />
+        </EntityType>
+        <EntityType Name="DkWzPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDkWz" Type="Int64" Nullable="false" />
+          <Property Name="ilosc" Type="Double" Nullable="false" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <Property Name="pozMag" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="DkPz" Relationship="Self.FK_DkWzPoz_DkPz" FromRole="DkWzPoz" ToRole="DkPz" />
+          <NavigationProperty Name="MagazynyPoz" Relationship="Self.FK_DkWzPoz_MagazynyPoz" FromRole="DkWzPoz" ToRole="MagazynyPoz" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_DkWzPoz_Towary" FromRole="DkWzPoz" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="DkZk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_DkZk_Uzytkownicy" FromRole="DkZk" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="DkZkPoz" Relationship="Self.FK_DkZkPoz_DkZk" FromRole="DkZk" ToRole="DkZkPoz" />
+        </EntityType>
+        <EntityType Name="DkZkPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDkZk" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="podatek" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="ilosc" Type="Double" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="DkZk" Relationship="Self.FK_DkZkPoz_DkZk" FromRole="DkZkPoz" ToRole="DkZk" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_DkZkPoz_Towary" FromRole="DkZkPoz" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Magazyny">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MagazynyPoz" Relationship="Self.FK_MagazynyPoz_Magazyny" FromRole="Magazyny" ToRole="MagazynyPoz" />
+        </EntityType>
+        <EntityType Name="MagazynyPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <Property Name="idmg" Type="Int64" Nullable="false" />
+          <Property Name="ilosc" Type="Double" Nullable="false" />
+          <NavigationProperty Name="DkPzPoz" Relationship="Self.FK_DkPzPoz_MagazynyPoz" FromRole="MagazynyPoz" ToRole="DkPzPoz" />
+          <NavigationProperty Name="DkWzPoz" Relationship="Self.FK_DkWzPoz_MagazynyPoz" FromRole="MagazynyPoz" ToRole="DkWzPoz" />
+          <NavigationProperty Name="Magazyny" Relationship="Self.FK_MagazynyPoz_Magazyny" FromRole="MagazynyPoz" ToRole="Magazyny" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_MagazynyPoz_Towary" FromRole="MagazynyPoz" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" Nullable="false" />
+          <Property Name="brutto" Type="Double" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DkPzPoz" Relationship="Self.FK_DkPzPoz_Towary" FromRole="Towary" ToRole="DkPzPoz" />
+          <NavigationProperty Name="DkSpPoz" Relationship="Self.FK_DkSpPoz_DkSpPoz" FromRole="Towary" ToRole="DkSpPoz" />
+          <NavigationProperty Name="DkWzPoz" Relationship="Self.FK_DkWzPoz_Towary" FromRole="Towary" ToRole="DkWzPoz" />
+          <NavigationProperty Name="DkZkPoz" Relationship="Self.FK_DkZkPoz_Towary" FromRole="Towary" ToRole="DkZkPoz" />
+          <NavigationProperty Name="MagazynyPoz" Relationship="Self.FK_MagazynyPoz_Towary" FromRole="Towary" ToRole="MagazynyPoz" />
+          <NavigationProperty Name="ZMOPoz" Relationship="Self.FK_ZMOPoz_Towary" FromRole="Towary" ToRole="ZMOPoz" />
+          <NavigationProperty Name="ZMWPoz" Relationship="Self.FK_ZMWPoz_Towary" FromRole="Towary" ToRole="ZMWPoz" />
+        </EntityType>
+        <EntityType Name="Uzytkownicy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kodpocz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DkPz" Relationship="Self.FK_DkPz_Uzytkownicy" FromRole="Uzytkownicy" ToRole="DkPz" />
+          <NavigationProperty Name="DkSp" Relationship="Self.FK_DkSp_Uzytkownicy" FromRole="Uzytkownicy" ToRole="DkSp" />
+          <NavigationProperty Name="DkWz" Relationship="Self.FK_DkWz_Uzytkownicy" FromRole="Uzytkownicy" ToRole="DkWz" />
+          <NavigationProperty Name="DkZk" Relationship="Self.FK_DkZk_Uzytkownicy" FromRole="Uzytkownicy" ToRole="DkZk" />
+          <NavigationProperty Name="ZMO" Relationship="Self.FK_ZMO_Uzytkownicy" FromRole="Uzytkownicy" ToRole="ZMO" />
+          <NavigationProperty Name="ZMW" Relationship="Self.FK_ZMW_Uzytkownicy" FromRole="Uzytkownicy" ToRole="ZMW" />
+        </EntityType>
+        <EntityType Name="ZMO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="czyZrealizowane" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_ZMO_Uzytkownicy" FromRole="ZMO" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="ZMOPoz" Relationship="Self.FK_ZMOPoz_ZMO" FromRole="ZMO" ToRole="ZMOPoz" />
+        </EntityType>
+        <EntityType Name="ZMOPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idZMO" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="podatek" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="ilosc" Type="Double" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_ZMOPoz_Towary" FromRole="ZMOPoz" ToRole="Towary" />
+          <NavigationProperty Name="ZMO" Relationship="Self.FK_ZMOPoz_ZMO" FromRole="ZMOPoz" ToRole="ZMO" />
+        </EntityType>
+        <EntityType Name="ZMW">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idkh" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="vat" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="data" Type="DateTime" Precision="0" />
+          <Property Name="czyZrealizowane" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_ZMW_Uzytkownicy" FromRole="ZMW" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="ZMWPoz" Relationship="Self.FK_ZMWPoz_ZMW" FromRole="ZMW" ToRole="ZMWPoz" />
+        </EntityType>
+        <EntityType Name="ZMWPoz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="idZMW" Type="Int64" Nullable="false" />
+          <Property Name="netto" Type="Double" Nullable="false" />
+          <Property Name="podatek" Type="Double" />
+          <Property Name="brutto" Type="Double" />
+          <Property Name="ilosc" Type="Double" />
+          <Property Name="idtw" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_ZMWPoz_Towary" FromRole="ZMWPoz" ToRole="Towary" />
+          <NavigationProperty Name="ZMW" Relationship="Self.FK_ZMWPoz_ZMW" FromRole="ZMWPoz" ToRole="ZMW" />
+        </EntityType>
+        <Association Name="FK_DkPz_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPz">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_DkPz">
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkPz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="idDkPz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_DkPz">
+          <End Role="DkPz" Type="Self.DkPz" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkPz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="idDkWz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_MagazynyPoz">
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyPoz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="pozMag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkPzPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkPzPoz" Type="Self.DkPzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkPzPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSp_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkSp" Type="Self.DkSp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSp">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSpPoz_DkSp">
+          <End Role="DkSp" Type="Self.DkSp" Multiplicity="1" />
+          <End Role="DkSpPoz" Type="Self.DkSpPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkSp">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSpPoz">
+              <PropertyRef Name="idDkSp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkSpPoz_DkSpPoz">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkSpPoz" Type="Self.DkSpPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkSpPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWz_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkWz" Type="Self.DkWz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWz">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_MagazynyPoz">
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagazynyPoz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="pozMag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkWzPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkWzPoz" Type="Self.DkWzPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkWzPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZk_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="DkZk" Type="Self.DkZk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZk">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZkPoz_DkZk">
+          <End Role="DkZk" Type="Self.DkZk" Multiplicity="1" />
+          <End Role="DkZkPoz" Type="Self.DkZkPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DkZk">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZkPoz">
+              <PropertyRef Name="idDkZk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DkZkPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="DkZkPoz" Type="Self.DkZkPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DkZkPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyPoz_Magazyny">
+          <End Role="Magazyny" Type="Self.Magazyny" Multiplicity="1" />
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyny">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MagazynyPoz">
+              <PropertyRef Name="idmg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MagazynyPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="MagazynyPoz" Type="Self.MagazynyPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MagazynyPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMOPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="ZMOPoz" Type="Self.ZMOPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMOPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMWPoz_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+          <End Role="ZMWPoz" Type="Self.ZMWPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMWPoz">
+              <PropertyRef Name="idtw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMO_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="ZMO" Type="Self.ZMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMO">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMW_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="ZMW" Type="Self.ZMW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMW">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMOPoz_ZMO">
+          <End Role="ZMO" Type="Self.ZMO" Multiplicity="1" />
+          <End Role="ZMOPoz" Type="Self.ZMOPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZMO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMOPoz">
+              <PropertyRef Name="idZMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZMWPoz_ZMW">
+          <End Role="ZMW" Type="Self.ZMW" Multiplicity="1" />
+          <End Role="ZMWPoz" Type="Self.ZMWPoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZMW">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ZMWPoz">
+              <PropertyRef Name="idZMW" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AplikacjeInternetoweEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DkPz" EntityType="Self.DkPz" />
+          <EntitySet Name="DkPzPoz" EntityType="Self.DkPzPoz" />
+          <EntitySet Name="DkSp" EntityType="Self.DkSp" />
+          <EntitySet Name="DkSpPoz" EntityType="Self.DkSpPoz" />
+          <EntitySet Name="DkWz" EntityType="Self.DkWz" />
+          <EntitySet Name="DkWzPoz" EntityType="Self.DkWzPoz" />
+          <EntitySet Name="DkZk" EntityType="Self.DkZk" />
+          <EntitySet Name="DkZkPoz" EntityType="Self.DkZkPoz" />
+          <EntitySet Name="Magazyny" EntityType="Self.Magazyny" />
+          <EntitySet Name="MagazynyPoz" EntityType="Self.MagazynyPoz" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" />
+          <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" />
+          <EntitySet Name="ZMO" EntityType="Self.ZMO" />
+          <EntitySet Name="ZMOPoz" EntityType="Self.ZMOPoz" />
+          <EntitySet Name="ZMW" EntityType="Self.ZMW" />
+          <EntitySet Name="ZMWPoz" EntityType="Self.ZMWPoz" />
+          <AssociationSet Name="FK_DkPz_Uzytkownicy" Association="Self.FK_DkPz_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkPz" EntitySet="DkPz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_DkPz" Association="Self.FK_DkPzPoz_DkPz">
+            <End Role="DkPz" EntitySet="DkPz" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_DkPz" Association="Self.FK_DkWzPoz_DkPz">
+            <End Role="DkPz" EntitySet="DkPz" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_MagazynyPoz" Association="Self.FK_DkPzPoz_MagazynyPoz">
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkPzPoz_Towary" Association="Self.FK_DkPzPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkPzPoz" EntitySet="DkPzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSp_Uzytkownicy" Association="Self.FK_DkSp_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkSp" EntitySet="DkSp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSpPoz_DkSp" Association="Self.FK_DkSpPoz_DkSp">
+            <End Role="DkSp" EntitySet="DkSp" />
+            <End Role="DkSpPoz" EntitySet="DkSpPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkSpPoz_DkSpPoz" Association="Self.FK_DkSpPoz_DkSpPoz">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkSpPoz" EntitySet="DkSpPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWz_Uzytkownicy" Association="Self.FK_DkWz_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkWz" EntitySet="DkWz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_MagazynyPoz" Association="Self.FK_DkWzPoz_MagazynyPoz">
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkWzPoz_Towary" Association="Self.FK_DkWzPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkWzPoz" EntitySet="DkWzPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZk_Uzytkownicy" Association="Self.FK_DkZk_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="DkZk" EntitySet="DkZk" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZkPoz_DkZk" Association="Self.FK_DkZkPoz_DkZk">
+            <End Role="DkZk" EntitySet="DkZk" />
+            <End Role="DkZkPoz" EntitySet="DkZkPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DkZkPoz_Towary" Association="Self.FK_DkZkPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="DkZkPoz" EntitySet="DkZkPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyPoz_Magazyny" Association="Self.FK_MagazynyPoz_Magazyny">
+            <End Role="Magazyny" EntitySet="Magazyny" />
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MagazynyPoz_Towary" Association="Self.FK_MagazynyPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="MagazynyPoz" EntitySet="MagazynyPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMOPoz_Towary" Association="Self.FK_ZMOPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="ZMOPoz" EntitySet="ZMOPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMWPoz_Towary" Association="Self.FK_ZMWPoz_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="ZMWPoz" EntitySet="ZMWPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMO_Uzytkownicy" Association="Self.FK_ZMO_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="ZMO" EntitySet="ZMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMW_Uzytkownicy" Association="Self.FK_ZMW_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="ZMW" EntitySet="ZMW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMOPoz_ZMO" Association="Self.FK_ZMOPoz_ZMO">
+            <End Role="ZMO" EntitySet="ZMO" />
+            <End Role="ZMOPoz" EntitySet="ZMOPoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZMWPoz_ZMW" Association="Self.FK_ZMWPoz_ZMW">
+            <End Role="ZMW" EntitySet="ZMW" />
+            <End Role="ZMWPoz" EntitySet="ZMWPoz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AplikacjeInternetoweModelStoreContainer" CdmEntityContainer="AplikacjeInternetoweEntities1">
+          <EntitySetMapping Name="DkPz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkPz">
+              <MappingFragment StoreEntitySet="DkPz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkPzPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkPzPoz">
+              <MappingFragment StoreEntitySet="DkPzPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idDkPz" ColumnName="idDkPz" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+                <ScalarProperty Name="pozMag" ColumnName="pozMag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkSp">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkSp">
+              <MappingFragment StoreEntitySet="DkSp">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkSpPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkSpPoz">
+              <MappingFragment StoreEntitySet="DkSpPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idDkSp" ColumnName="idDkSp" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkWz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkWz">
+              <MappingFragment StoreEntitySet="DkWz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkWzPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkWzPoz">
+              <MappingFragment StoreEntitySet="DkWzPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idDkWz" ColumnName="idDkWz" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+                <ScalarProperty Name="pozMag" ColumnName="pozMag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkZk">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkZk">
+              <MappingFragment StoreEntitySet="DkZk">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DkZkPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.DkZkPoz">
+              <MappingFragment StoreEntitySet="DkZkPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idDkZk" ColumnName="idDkZk" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="podatek" ColumnName="podatek" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazyny">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Magazyny">
+              <MappingFragment StoreEntitySet="Magazyny">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MagazynyPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.MagazynyPoz">
+              <MappingFragment StoreEntitySet="MagazynyPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+                <ScalarProperty Name="idmg" ColumnName="idmg" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towary">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Towary">
+              <MappingFragment StoreEntitySet="Towary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownicy">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.Uzytkownicy">
+              <MappingFragment StoreEntitySet="Uzytkownicy">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+                <ScalarProperty Name="rola" ColumnName="rola" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="kodpocz" ColumnName="kodpocz" />
+                <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+                <ScalarProperty Name="nip" ColumnName="nip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZMO">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMO">
+              <MappingFragment StoreEntitySet="ZMO">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="czyZrealizowane" ColumnName="czyZrealizowane" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZMOPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMOPoz">
+              <MappingFragment StoreEntitySet="ZMOPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idZMO" ColumnName="idZMO" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="podatek" ColumnName="podatek" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZMW">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMW">
+              <MappingFragment StoreEntitySet="ZMW">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="czyZrealizowane" ColumnName="czyZrealizowane" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZMWPoz">
+            <EntityTypeMapping TypeName="AplikacjeInternetoweModel.ZMWPoz">
+              <MappingFragment StoreEntitySet="ZMWPoz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idZMW" ColumnName="idZMW" />
+                <ScalarProperty Name="netto" ColumnName="netto" />
+                <ScalarProperty Name="podatek" ColumnName="podatek" />
+                <ScalarProperty Name="brutto" ColumnName="brutto" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="idtw" ColumnName="idtw" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
