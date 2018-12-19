@@ -1,0 +1,155 @@
+﻿@model ERP.Models.UserViewModel
+@*@using PagedList.Mvc
+    @model PagedList.IPagedList<ERP.Models.Uzytkownicy>*@
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+
+@if (ViewBag.Uzytkownicy != null)
+{
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>Hasło</th>
+            <th>Rola</th>
+            <th>Ulica</th>
+        </tr>
+        @foreach (var item in ViewBag.Uzytkownicy)
+        {
+            <tr id="row_@item.id">
+                <th><b>@item.nazwa</b></th>
+                <th>@item.haslo</th>
+                <th>@item.rola</th>
+                <th>@item.ulica</th>
+                <th>@item.id</th>
+                <th><a href="#" class="btn btn-danger" onclick="ConfirmDelete(@item.id)"><i class="glyphicon glyphicon-trash"></i></a></th>
+                <th><a href="@Url.Action("Edit","Uzytkownicy", new { UserId = item.id})" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a></th>
+            </tr>
+        }
+    </table>
+
+    <input type="hidden" id="hiddenId" />
+
+    <div class="modal fade" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Usuń użytkownika</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Jesteś pewien? </h4>
+                    <div style="text-align:center;display:none" id="loaderDiv">
+                        <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Anuluj</a>
+                    <a href="#" class="btn btn-success" onclick="UsunUzytkownika()">Potwierdź</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="modal fade" id="editModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Edycja użytkownika</h3>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Anuluj</a>
+                    <a href="#" class="btn btn-success" onclick="UsunUzytkownika()">Potwierdź</a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+}
+else
+{
+    <h2> Brak wyników!</h2>
+}
+
+@*<table>
+        <div style="margin:5px;">
+            Page @(Model.PageCount < Model.PageNumber ? 0:Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, CurrentFilter = ViewBag.CurrentFilter}))
+        </div>
+    </table>*@
+
+<script>
+
+    var ConfirmDelete = function (UserId) {
+        $("#hiddenId").val(UserId);
+        $("#deleteModal").modal('show');
+    }
+
+
+
+    var UsunUzytkownika = function () {
+
+        $("#loaderDiv").show();
+
+        var IdUsera = $("#hiddenId").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Uzytkownicy/UserDelete",
+            data: { UserId: IdUsera },
+            success: function (result) {
+                $("#loaderDiv").hide();
+                $("#deleteModal").modal('hide');
+                $("#row_" + IdUsera).remove();
+            }
+
+        })
+    }
+
+    //var EdycjaUzytkownika = function (UserId) {
+
+    //    var IdUsera = UserId;
+
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "/Uzytkownicy/Edit",
+    //        data: { UserId: IdUsera },
+    //        success: function (result) {
+    //        }
+
+    //    })
+    //}
+</script>

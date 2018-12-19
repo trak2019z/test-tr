@@ -1,0 +1,61 @@
+﻿@using ERP.Models
+@model TowaryViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <table class="table table-hover small-text" id="tb">
+        <tr class="tr-header">
+            <th>Towar</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add More Person"><span class="glyphicon glyphicon-plus"></span></a></th>
+        <tr>
+            <td>
+                <select name="towary[]" class="form-control">
+                    <option value="" selected>Wybierz towar</option>
+                    @foreach (var item in ViewBag.Towary)
+                    {
+                        <option value="Engineer">@item.nazwa</option>
+                    }
+                </select>
+            </td>
+            <td><input type="text" name="mobileno[]" class="form-control"></td>
+            <td><input type="text" name="emailid[]" class="form-control"></td>
+            <td><a href='javascript:void(0);' class='remove'><span class='glyphicon glyphicon-remove'></span></a></td>
+        </tr>
+    </table>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+<script>
+    $(function () {
+        $('#addMore').on('click', function () {
+            var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+            data.find("input").val('');
+        });
+        $(document).on('click', '.remove', function () {
+            var trIndex = $(this).closest("tr").index();
+            if (trIndex > 1) {
+                $(this).closest("tr").remove();
+            } else {
+                alert("Sorry!! Can't remove first row!");
+            }
+        });
+    });
+</script>

@@ -130,7 +130,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="netto" Type="Double" Nullable="false" />

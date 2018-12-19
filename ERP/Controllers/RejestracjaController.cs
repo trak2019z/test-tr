@@ -44,10 +44,18 @@ namespace ERP.Controllers
                 uzytkownik.rola = "uzytkownik";
                 uzytkownik.nip = model.nip;
 
-                db.Uzytkownicy.Add(uzytkownik);
-                db.SaveChanges();
+                var userExists = db.Uzytkownicy.FirstOrDefault(x => x.nazwa == uzytkownik.nazwa);
 
-                return View("RejestracjaDone");
+                if (userExists == null)
+                {
+                    db.Uzytkownicy.Add(uzytkownik);
+                    db.SaveChanges();
+                    return View("RejestracjaDone");
+                }
+                else
+                {
+                    return View("UserExist");
+                }
             }
             catch
             {

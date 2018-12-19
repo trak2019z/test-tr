@@ -40,14 +40,15 @@
         </tr>
         @foreach (var cos in Model)
         {
-            <tr>
-                <!--<th><img src="~/Images/pobrane.jpg"/></th>-->
-                <th><b>@cos.nazwa</b></th>
-                <th>@cos.haslo</th>
-                <th>@cos.rola</th>
-                <th>@cos.ulica</th>
-                <th>@Html.ActionLink("Usuń", "Delete", "RejestracjaController")</th>
-            </tr>
+        <tr>
+            <!--<th><img src="~/Images/pobrane.jpg"/></th>-->
+            <th><b>@cos.nazwa</b></th>
+            <th>@cos.haslo</th>
+            <th>@cos.rola</th>
+            <th>@cos.ulica</th>
+            <th>@Html.ActionLink("Usuń", "Delete", "RejestracjaController")</th>
+            <th>@Html.ActionLink("Edytuj", "Edit", "RejestracjaController")</th>
+        </tr>
         }
     </table>
 }

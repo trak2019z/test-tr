@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,8 +173,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RejestracjaController.cs" />
     <Compile Include="Controllers\TowaryController.cs" />
+    <Compile Include="Controllers\UzytkownicyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +219,7 @@
     <Compile Include="Models\DkZkPoz.cs">
       <DependentUpon>AplikacjeInternetoweModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Magazyny.cs">
       <DependentUpon>AplikacjeInternetoweModel.tt</DependentUpon>
     </Compile>
@@ -237,6 +246,7 @@
     <Compile Include="Models\ZMWPoz.cs">
       <DependentUpon>AplikacjeInternetoweModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ZMWPozViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +254,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -303,6 +314,14 @@
     <Content Include="Views\Home\Towary.cshtml" />
     <Content Include="Views\Towary\TowarDodany.cshtml" />
     <Content Include="Views\Towary\TowarNiedodany.cshtml" />
+    <Content Include="Views\Uzytkownicy\Index.cshtml" />
+    <Content Include="Views\Uzytkownicy\Login.cshtml" />
+    <Content Include="Views\Uzytkownicy\LoggedIn.cshtml" />
+    <Content Include="Views\Uzytkownicy\LoginFailed.cshtml" />
+    <Content Include="Views\Rejestracja\UserExist.cshtml" />
+    <Content Include="Views\Home\IndexFull.cshtml" />
+    <Content Include="Views\Uzytkownicy\Edit.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

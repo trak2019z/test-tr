@@ -78,10 +78,10 @@ namespace ERP.Controllers
         }
 
         // GET: Rejestracja/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
         // POST: Rejestracja/Delete/5
         [HttpPost]

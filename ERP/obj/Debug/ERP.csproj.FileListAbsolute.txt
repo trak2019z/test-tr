@@ -101,3 +101,7 @@ C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\System.W
 C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\System.Net.Http.Formatting.xml
 C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\System.Web.Http.xml
 C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\System.Web.Http.WebHost.xml
+C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\PagedList.dll
+C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\PagedList.Mvc.dll
+C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\PagedList.xml
+C:\Users\Kamil\Desktop\Szkola\Aplikacje internetowe\Projekt\ERP\ERP\bin\PagedList.Mvc.xml

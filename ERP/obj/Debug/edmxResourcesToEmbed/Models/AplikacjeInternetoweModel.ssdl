@@ -107,7 +107,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="nazwa" Type="varchar" MaxLength="50" />
     <Property Name="kod" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="netto" Type="float" Nullable="false" />

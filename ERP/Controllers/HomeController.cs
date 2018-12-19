@@ -11,6 +11,11 @@ namespace ERP.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["username"] != null)
+            {
+                //AplikacjeInternetoweEntities1 db = new AplikacjeInternetoweEntities1();
+                return View("IndexFull");
+            }
             return View();
         }
 
@@ -19,30 +24,6 @@ namespace ERP.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
-        }
-
-        public ActionResult WyswietlUzytkownikow()
-        {
-            AplikacjeInternetoweEntities1 db = new AplikacjeInternetoweEntities1();
-
-            List<Uzytkownicy> uzytkownicyList = new List<Uzytkownicy>();
-            uzytkownicyList = db.Uzytkownicy.ToList();
-
-            //Uzytkownicy uzytkownik = db.Uzytkownicy.SingleOrDefault(x => x.id == id);
-            List<UserViewModel> vmList = new List<UserViewModel>();
-
-            foreach (var x in uzytkownicyList)
-            {
-                UserViewModel vm = new UserViewModel();
-
-                vm.haslo = x.haslo;
-                vm.nazwa = x.nazwa;
-                vm.rola = x.rola;
-                vm.ulica = x.ulica;
-
-                vmList.Add(vm);
-            }
-            return View(vmList);
         }
 
 

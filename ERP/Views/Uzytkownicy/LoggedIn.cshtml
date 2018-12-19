@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<h2>Witaj, @ViewBag.username! Za chwilę zostaniesz przekierowany na stronę główną.</h2>
+
+<script>
+    window.setTimeout(function () {
+        window.location.href = 'http://localhost:52623/';
+    }, 4000);
+</script>
